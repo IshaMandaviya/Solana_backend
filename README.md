@@ -11,7 +11,7 @@ git clone https://github.com/IshaMandaviya/auction-house-backend.git
   
 2. Go to the directory:
 ```bash
-cd auction-house-backtend`
+cd auction-house-backend
  ```  
 3. Install dependencies
 ```bash
