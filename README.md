@@ -4,9 +4,9 @@
 Backend is written in Nodejs with MongoDB as a Database and For setting up the project.
 This step presumes that node related all the prerequisites are installed in the machine.
 
-1. Clone the clod9-backend repo:
+1. Clone the solana-nft-marketplace-be repo:
 ```bash
-git clone https://github.com/IshaMandaviya/auction-house-backend.git
+git clone https://github.com/SoluLab/solana-nft-marketplace-be
 ```
   
 2. Go to the directory:
