@@ -1,4 +1,4 @@
-# Auction-house-backend
+# solana-nft-marketplace-be
 
 ## Project Setup
 Backend is written in Nodejs with MongoDB as a Database and For setting up the project.
