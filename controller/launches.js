@@ -117,7 +117,7 @@ export const mintFromLaunch = async (req, res) => {
   console.log("collectionName", existingCollection)
   if (existingCollection) {
     try {
-      console.log("isha890")
+      
        existingCollection.nfts.push(mintKey);
        existingCollection.owners.push(owner);
       await existingCollection.save();

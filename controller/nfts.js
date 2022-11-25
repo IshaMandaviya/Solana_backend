@@ -4,8 +4,8 @@ import { User } from "../model/users.js";
 import { MarketPlex } from "../model/marketPlace.js"
 
 export const listNFT = async (req, res) => {
-
-    const { owner, mintKey, priceAmount } = req.body
+    
+    const { owner, mintKey, priceAmount,txid } = req.body
 
     console.log(req.body);
     try {
@@ -44,6 +44,7 @@ export const listNFT = async (req, res) => {
                 Nft.inSale = true;
                 Nft.priceAmount = priceAmount;
                 Nft.owner = owner;
+                
                 Nft.save();
                 if (collection.floorPrice == 0) {
                     collection.floorPrice = priceAmount;
@@ -59,6 +60,7 @@ export const listNFT = async (req, res) => {
                     type: 'listed',
                     seller: owner,
                     priceAmount: priceAmount,
+                    transactionId: txid,
                 }
 
                 await collection.activity.push(activity);
@@ -495,8 +497,8 @@ export const buyNft = async (req, res) => {
 
 export const cancelNFTListing = async (req, res) => {
     try {
-
-        const { mintKey, owner } = req.body
+        
+        const { mintKey, owner,txid } = req.body
         if (mintKey) {
             const nft = await NFTS.findOne({
                 mintKey: mintKey,
@@ -515,6 +517,7 @@ export const cancelNFTListing = async (req, res) => {
                         type: 'cancelListing',
                         seller: owner,
                         priceAmount: priceAmount,
+                        transactionId: txid,
                     }
 
                     const user = await User.findOne({ publicKey: owner })
