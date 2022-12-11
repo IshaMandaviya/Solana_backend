@@ -39,6 +39,7 @@ export const addCollection = async (req, res) => {
                 mintKey: nfts[i],
                 owner: creator,
                 collectionName: name,
+                isVerified:true,
     
             })
             newNFT.save();

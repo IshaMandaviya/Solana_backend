@@ -29,7 +29,10 @@ const nftSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-
+    isVerified:{
+        type: Boolean,
+        default: false,
+    },
     listedAt: {
         type: Date,
         required: true,
