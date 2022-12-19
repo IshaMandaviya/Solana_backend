@@ -39,6 +39,7 @@ export const addCollection = async (req, res) => {
                 mintKey: nfts[i],
                 owner: creator,
                 collectionName: name,
+                isVerified:true,
     
             })
             newNFT.save();
@@ -76,6 +77,18 @@ export const fetchAllCollection = async (req, res) => {
 
     const collection = await Collection.find();
 
+    if (collection == undefined) {
+        return res.status(401).json("No collection at the moment to fetch");
+    }
+
+    return res.send(collection);
+
+}
+
+export const fetchTopCollection = async (req, res) => {
+
+    const collection = await Collection.find().limit(4);
+    console.log(collection,"4 collection")
     if (collection == undefined) {
         return res.status(401).json("No collection at the moment to fetch");
     }
